@@ -1,0 +1,21 @@
+{
+  "name": "treino1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "animation.js",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./style.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.1"
+  }
+}

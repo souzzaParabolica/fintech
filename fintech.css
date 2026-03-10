@@ -1,0 +1,32 @@
+.getStarted {
+  background: linear-gradient(90deg, #2b018b, #6010fd);
+}
+
+.avaliacao, .card{
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    box-shadow: inset 1px 1px 2px -1px rgba(255, 255, 255, 0.32);
+    box-shadow: inset -2px -1px 10px -1px rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.purpleCard{
+    border: none;
+    background-image: linear-gradient(45deg, #2b018b, #5f0ffc);
+}
+
+.resultados{
+    background-image: linear-gradient(45deg, #180151, #370b94);
+}
+
+.trustCard{
+    border: 1px solid rgba(255, 255, 255, 0.658);
+}
+
+.resultsCard{
+    border: 1px solid rgba(255, 255, 255, 0.658);
+}
+
+.purpleBorder{
+    border: 1px solid #5810de;
+}
