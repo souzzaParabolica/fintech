@@ -59,12 +59,18 @@
     <link rel="stylesheet" href="style.css" />
     <title>Fintech | Innovating Tomorrow</title>
   </head>
-  <body class="bg-black overflow-x-hidden">
+  <body class="bg-black font-[poppins] overflow-x-hidden">
     <header
-      class="absolute w-full top-0 left-0 flex justify-between items-center px-[100px] py-[25px] font-[poppins] z-10"
+      class="fixed w-full top-0 left-0 flex justify-between items-center px-[24px] sm:px-[40px] lg:px-[100px] py-[18px] sm:py-[20px] lg:py-[25px] z-50 overflow-hidden"
     >
-      <img src="Assets/Img/logo.png" alt="logo" class="w-[8%]" />
-      <nav class="flex">
+      <img
+        src="Assets/Img/logo.png"
+        alt="logo"
+        class="w-[100px] min-w-[72px] max-w-[120px] sm:w-[120px] lg:w-[8%] z-50"
+      />
+
+      <!-- Desktop NAV -->
+      <nav class="hidden lg:flex">
         <ul class="flex gap-12">
           <li
             class="text-sm font-light text-white/70 hover:text-white/90 hover:underline duration-150 ease"
@@ -93,46 +99,147 @@
           </li>
         </ul>
       </nav>
-      <div class="buttons flex gap-4 justify-center items-center">
+      <div class="buttons hidden lg:flex gap-4 justify-center items-center">
         <button
-          class="border border-white rounded-lg text-sm px-10 py-3 text-md text-white/80 cursor-pointer hover:bg-white/10 duration-150 ease hover:text-white/90 hover:-translate-y-px"
+          class="border border-white rounded-lg text-sm px-8 py-3 text-md text-white/80 cursor-pointer hover:bg-white/10 duration-150 ease hover:text-white/90 hover:-translate-y-px"
         >
           Request A Demo
         </button>
         <button
-          class="getStarted rounded-lg text-sm px-10 py-3 text-md text-white/80 cursor-pointer duration-150 ease hover:text-white/90 hover:-translate-y-px"
+          class="getStarted rounded-lg text-sm px-8 py-3 text-md text-white/80 cursor-pointer duration-150 ease hover:text-white/90 hover:-translate-y-px"
         >
           Get Started
         </button>
       </div>
-    </header>
 
-    <main>
-      <section class="hero relative font-[poppins] h-screen w-full">
+      <!-- Mobile Hamburger -->
+      <button
+        id="mobile-menu-btn"
+        aria-label="Abrir menu"
+        class="lg:hidden z-50 flex items-center justify-center"
+      >
+        <svg
+          class="w-8 h-8 text-white"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 7h16M4 12h16M4 17h16"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Mobile Fullscreen Menu (Overlay + Menu) -->
+      <div
+        id="mobile-menu-overlay"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden transition-opacity duration-300"
+      ></div>
+
+      <nav
+        id="mobile-menu"
+        class="fixed inset-0 w-full h-full bg-[#130a25]/50 backdrop-blur-sm z-50 flex flex-col justify-center items-center translate-x-full transition-transform duration-300 opacity-100"
+        style="will-change: transform"
+      >
+        <button
+          id="close-mobile-menu"
+          aria-label="Fechar menu"
+          class="absolute top-7 right-7 flex items-center justify-center z-50"
+        >
+          <svg
+            class="w-8 h-8 text-white/90 hover:text-[#5810de] transition duration-150"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+        <ul class="flex flex-col gap-6 mt-0 mb-6 w-full max-w-xs">
+          <li>
+            <a
+              href="#"
+              class="block py-4 px-4 text-2xl font-semibold text-white/90 text-center hover:text-[#5810de] transition"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block py-4 px-4 text-2xl font-semibold text-white/90 text-center hover:text-[#5810de] transition"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block py-4 px-4 text-2xl font-semibold text-white/90 text-center hover:text-[#5810de] transition"
+              >Pricing</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block py-4 px-4 text-2xl font-semibold text-white/90 text-center hover:text-[#5810de] transition"
+              >Solutions</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block py-4 px-4 text-2xl font-semibold text-white/90 text-center hover:text-[#5810de] transition"
+              >About</a
+            >
+          </li>
+        </ul>
+        <div class="flex flex-col gap-4 w-full max-w-xs items-center">
+          <button
+            class="border border-white rounded-lg text-lg px-6 py-4 w-full text-white/90 cursor-pointer bg-white/5 hover:bg-white/10 duration-150 ease hover:text-[#5810de] hover:-translate-y-0.5 transition"
+          >
+            Request A Demo
+          </button>
+          <button
+            class="getStarted rounded-lg text-lg px-6 py-4 w-full text-white/90 cursor-pointer bg-[#5810de] hover:bg-white/10 duration-150 ease hover:text-white hover:-translate-y-0.5 transition"
+          >
+            Get Started
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="overflow-hidden">
+      <section class="hero relative min-h-[600px] h-screen w-full flex items-center justify-center">
         <div
-          class="flex flex-col gap-8 justify-center items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          class="flex flex-col gap-6 sm:gap-8 justify-center items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[90vw] max-w-4xl px-2 sm:px-0"
         >
           <h1
-            class="text-white/90 font-bold text-7xl text-center leading-[90px]"
+            class="text-white/90 font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-center leading-snug sm:leading-snug md:leading-[75px] lg:leading-[90px]"
           >
             Innovating Tomorrow. Building Today.
           </h1>
           <p
-            class="text-white/70 text-sm font-light text-center bg-black/50 rounded-lg p-8"
+            class="text-white/70 text-xs sm:text-sm md:text-base font-light text-center bg-black/50 rounded-lg p-4 md:p-8 w-full"
           >
             Empowering business with text gen technology solutions from curstom
-            <br />
+            <br class="hidden xs:inline" />
             software to AI-driven pratforms, we engineer your digital sucess.
           </p>
 
-          <div class="flex gap-4 justify-center items-center">
+          <div class="flex flex-col gap-3 sm:gap-4 justify-center items-center w-full xs:w-auto xl:flex-row xl:gap-4 xl:w-auto xl:items-center">
             <button
-              class="getStarted rounded-lg text-sm px-10 py-3 text-md text-white/80 cursor-pointer duration-150 ease hover:text-white/90 hover:-translate-y-px"
+              class="getStarted rounded-lg text-xs sm:text-sm px-4 sm:px-8 md:px-10 py-2 sm:py-3 text-md text-white/80 cursor-pointer duration-150 ease hover:text-white/90 hover:-translate-y-px w-full xs:w-auto xl:w-auto"
             >
               Get a Free Consultation
             </button>
             <button
-              class="border border-white rounded-lg text-sm px-10 py-3 text-md text-white/80 cursor-pointer hover:bg-white/10 duration-150 ease hover:text-white/90 hover:-translate-y-px"
+              class="border border-white rounded-lg text-xs sm:text-sm px-4 sm:px-8 md:px-10 py-2 sm:py-3 text-md text-white/80 cursor-pointer hover:bg-white/10 duration-150 ease hover:text-white/90 hover:-translate-y-px w-full xs:w-auto xl:w-auto"
             >
               See Our Work
             </button>
@@ -144,10 +251,13 @@
         ></script>
         <spline-viewer
           url="https://prod.spline.design/YVirgwipMRK7tkb1/scene.splinecode"
+          class=""
+          style="min-width:0;min-height:0;object-fit:cover;"
         ></spline-viewer>
       </section>
       <section
-        class="relative px-[100px] font-[poppins] flex flex-col justify-start items-center pt-[150px] gap-4"
+        class="relative flex flex-col justify-start items-center pt-[150px] gap-4 px-[20px] 
+        md:px-[100px] sm:px-8 xs:px-2"
       >
         <img
           class="pointer-events-none select-none absolute top-0 left-[-50%] w-full h-full object-cover overflow-hidden -z-10"
@@ -155,48 +265,59 @@
           alt=""
           style="max-height: 100%; height: 100%"
         />
+        <!-- Avaliacao div NÃO ALTERADA para manter o visual desktop como está -->
         <div
-          class="absolute top-[-5%] left-1/2 -translate-x-1/2 avaliacao flex justify-between items-center py-4 px-20 bg-white/10 rounded-xl w-[80%]"
-        >
-          <div class="flex flex-col justify-center items-start gap-1">
-            <div class="flex gap-1 justify-center items-start">
-              <img src="Assets/Img/star.png" class="w-2 h-2" alt="" />
-              <img src="Assets/Img/star.png" class="w-2 h-2" alt="" />
-              <img src="Assets/Img/star.png" class="w-2 h-2" alt="" />
-              <img src="Assets/Img/star.png" class="w-2 h-2" alt="" />
-              <img src="Assets/Img/star.png" class="w-2 h-2" alt="" />
-            </div>
-            <p class="text-white/70 text-sm font-light">Rated 4.9/5 by</p>
-            <p class="text-white/90 font-medium text-4xl">1,200+</p>
-            <p class="text-white/70 text-sm font-light">users on</p>
+        class="absolute top-[-5%] left-1/2 -translate-x-1/2 avaliacao flex flex-col xl:flex-row justify-between items-center py-4 px-20 bg-white/10 rounded-xl w-[80%]"
+      >
+        <div class="flex flex-col justify-center items-center xl:items-start gap-1">
+          <div class="flex gap-1 justify-center items-start">
+            <img src="Assets/Img/star.png" class="w-2 h-2" alt="" />
+            <img src="Assets/Img/star.png" class="w-2 h-2" alt="" />
+            <img src="Assets/Img/star.png" class="w-2 h-2" alt="" />
+            <img src="Assets/Img/star.png" class="w-2 h-2" alt="" />
+            <img src="Assets/Img/star.png" class="w-2 h-2" alt="" />
           </div>
-          <div class="w-1 h-[100px] bg-white rounded-lg"></div>
-          <img class="w-[4%]" src="Assets/logos/logo1.png" alt="" />
-          <img class="w-[4%]" src="Assets/logos/logo2.png" alt="" />
-          <img class="w-[4%]" src="Assets/logos/logo3.png" alt="" />
-          <img class="w-[4%]" src="Assets/logos/logo4.png" alt="" />
+          <p class="text-white/70 text-sm font-light">Rated 4.9/5 by</p>
+          <p class="text-white/90 font-medium text-4xl">1,200+</p>
+          <p class="text-white/70 text-sm font-light">users on</p>
         </div>
-        <h2 class="font-[poppins] font-medium text-3xl text-white/90">
+        <div class="hidden xl:block w-1 h-[100px] bg-white rounded-lg"></div>
+        <img class="hidden xl:block w-[4%]" src="Assets/logos/logo1.png" alt="" />
+        <img class="hidden xl:block w-[4%]" src="Assets/logos/logo2.png" alt="" />
+        <img class="hidden xl:block w-[4%]" src="Assets/logos/logo3.png" alt="" />
+        <img class="hidden xl:block w-[4%]" src="Assets/logos/logo4.png" alt="" />
+        <div class="flex flex-row justify-between items-center mt-8 xl:hidden">
+        <img class="w-[10%]" src="Assets/logos/logo1.png" alt="" />
+        <img class="w-[10%]" src="Assets/logos/logo2.png" alt="" />
+        <img class="w-[10%]" src="Assets/logos/logo3.png" alt="" />
+        <img class="w-[10%]" src="Assets/logos/logo4.png" alt="" />
+      </div>
+      </div>
+        <h2 class="font-medium text-4xl text-white/90 text-center">
           Innovating Tomorrow.
           <span class="text-[#5f10fa]">Building Today.</span>
         </h2>
         <p class="text-white/70 text-md font-light text-center mt-8">
           Empowering business with text gen technology solutions from curstom
-          <br />
+          <br class="hidden xl:block" />
           software to AI-driven pratforms, we engineer your digital sucess.
         </p>
 
+        <!-- Cards group 1 -->
         <div
-          class="flex justify-center items-center gap-4 relative w-[80%] mt-[50px]"
+          class="flex flex-row flex-wrap justify-center items-center gap-4 relative w-[80%] mt-[50px]
+          md:flex-row md:w-[80%]
+          sm:flex-col sm:w-full sm:gap-4
+          xs:flex-col xs:w-full"
         >
           <div
-            class="card flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 h-[310px]"
+            class="card flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 min-w-[260px] xl:h-[310px] sm:w-full"
           >
             <i
               data-lucide="arrow-up-right"
               class="text-[#5810de] w-6 h-6 p-1 border border-[#5810de] rounded-full absolute top-8 right-8"
             ></i>
-            <img class="w-[10%]" src="Assets/computerPurple.png" alt="" />
+            <img class="xl:w-[10%] w-[40px] h-[40px]" src="Assets/computerPurple.png" alt="" />
             <h3 class="text-white/90 font-medium text-lg max-w-1/2">
               Custom Software Development
             </h3>
@@ -206,13 +327,13 @@
             </p>
           </div>
           <div
-            class="card purpleCard flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 h-[310px]"
+            class="card purpleCard flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 min-w-[260px] xl:h-[310px] sm:w-full"
           >
             <i
               data-lucide="arrow-up-right"
-              class="text-/80 w-6 h-6 p-1 border border-white/80 rounded-full absolute top-8 right-8"
+              class="text-/80 w-6 h-6 p-1 border border-white/80 rounded-full absolute top-8 right-8 text-white/80"
             ></i>
-            <img class="w-[10%]" src="Assets/computerWhite.png" alt="" />
+            <img class="xl:w-[10%] w-[40px] h-[40px]" src="Assets/computerWhite.png" alt="" />
             <h3 class="text-white/90 font-medium text-lg max-w-1/2">
               AI & Machine Learning
             </h3>
@@ -222,13 +343,13 @@
             </p>
           </div>
           <div
-            class="card flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 h-[310px]"
+            class="card flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 min-w-[260px] xl:h-[310px] sm:w-full"
           >
             <i
               data-lucide="arrow-up-right"
               class="text-[#5810de] w-6 h-6 p-1 border border-[#5810de] rounded-full absolute top-8 right-8"
             ></i>
-            <img class="w-[10%]" src="Assets/computerPurple.png" alt="" />
+            <img class="xl:w-[10%] w-[40px] h-[40px]" src="Assets/computerPurple.png" alt="" />
             <h3 class="text-white/90 font-medium text-lg max-w-1/2">
               Cloud Solutions
             </h3>
@@ -238,17 +359,22 @@
             </p>
           </div>
         </div>
+
+        <!-- Cards group 2 -->
         <div
-          class="flex justify-center items-center gap-4 relative w-[80%] mb-[80px]"
+          class="flex flex-row flex-wrap justify-center items-center gap-4 relative w-[80%] mb-[80px]
+          md:flex-row md:w-[80%]
+          sm:flex-col sm:w-full sm:gap-4
+          xs:flex-col xs:w-full"
         >
           <div
-            class="card flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 h-[310px]"
+            class="card flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 min-w-[260px] xl:h-[310px] sm:w-full"
           >
             <i
               data-lucide="arrow-up-right"
               class="text-[#5810de] w-6 h-6 p-1 border border-[#5810de] rounded-full absolute top-8 right-8"
             ></i>
-            <img class="w-[10%]" src="Assets/computerPurple.png" alt="" />
+            <img class="xl:w-[10%] w-[40px] h-[40px]" src="Assets/computerPurple.png" alt="" />
             <h3 class="text-white/90 font-medium text-lg max-w-1/2">
               UI/UX <br />
               Design
@@ -259,13 +385,13 @@
             </p>
           </div>
           <div
-            class="card flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 h-[310px]"
+            class="card flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 min-w-[260px] xl:h-[310px] sm:w-full"
           >
             <i
               data-lucide="arrow-up-right"
               class="text-[#5810de] w-6 h-6 p-1 border border-[#5810de] rounded-full absolute top-8 right-8"
             ></i>
-            <img class="w-[10%]" src="Assets/computerWhite.png" alt="" />
+            <img class="xl:w-[10%] w-[40px] h-[40px]" src="Assets/computerWhite.png" alt="" />
             <h3 class="text-white/90 font-medium text-lg max-w-1/2">
               Web & Mobile App Development
             </h3>
@@ -274,13 +400,13 @@
             </p>
           </div>
           <div
-            class="card flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 h-[310px]"
+            class="card flex flex-col justify-start items-start gap-8 bg-white/10 rounded-lg p-8 relative flex-1 min-w-[260px] xl:h-[310px] sm:w-full"
           >
             <i
               data-lucide="arrow-up-right"
               class="text-[#5810de] w-6 h-6 p-1 border border-[#5810de] rounded-full absolute top-8 right-8"
             ></i>
-            <img class="w-[10%]" src="Assets/computerPurple.png" alt="" />
+            <img class="xl:w-[10%] w-[40px] h-[40px]" src="Assets/computerPurple.png" alt="" />
             <h3 class="text-white/90 font-medium text-lg max-w-1/2">
               Cybersecurity
             </h3>
@@ -291,72 +417,72 @@
         </div>
       </section>
       <section
-        class="resultados px-[100px] py-[80px] font-[poppins] flex flex-col justify-center items-center"
+        class="resultados px-[24px] sm:px-[40px] lg:px-[100px] py-[40px] sm:py-[60px] lg:py-[80px] flex flex-col justify-center items-center"
       >
-        <h2 class="font-[poppins] font-medium text-3xl text-white/90">
+        <h2 class="font-medium text-2xl sm:text-3xl lg:text-4xl text-white/90 text-center">
           Built on Trust. Driven by Results.
         </h2>
-        <p class="text-white/70 text-md font-light text-center my-8">
+        <p class="text-white/70 text-md sm:text-md font-light text-center my-6 sm:my-8">
           We dont't just build softwares, we build relationships. Our clients
-          <br />
+          <br class="hidden sm:block" />
           trust us to deliver tech that works.
         </p>
-        <div class="trustCards flex justify-center items-center gap-4 w-[80%]">
+        <div class="trustCards flex flex-col sm:flex-row justify-center items-stretch gap-4 sm:gap-4 w-full sm:w-[90%] lg:w-[80%]">
           <div
-            class="trustCard flex flex-col justify-start items-start gap-8 rounded-lg p-6 relative flex-1"
+            class="trustCard flex flex-col justify-start items-start gap-6 sm:gap-8 rounded-lg p-5 sm:p-6 relative flex-1 min-w-0"
           >
             <i
               data-lucide="arrow-up-right"
-              class="text-white/80 w-6 h-6 p-1 border border-white/80 rounded-full absolute top-8 right-8"
+              class="text-white/80 w-6 h-6 p-1 border border-white/80 rounded-full absolute top-6 right-6 sm:top-8 sm:right-8"
             ></i>
-            <h3 class="text-white/90 font-bold text-5xl">01</h3>
-            <p class="text-white/80 text-2xl font-medium">
+            <h3 class="text-white/90 font-bold text-4xl sm:text-5xl">01</h3>
+            <p class="text-white/80 text-xl sm:text-2xl font-medium">
               10+ Years of Tech Expertise
             </p>
           </div>
 
           <div
-            class="trustCard flex flex-col justify-start items-start gap-8 rounded-lg p-6 relative flex-1"
+            class="trustCard flex flex-col justify-start items-start gap-6 sm:gap-8 rounded-lg p-5 sm:p-6 relative flex-1 min-w-0"
           >
             <i
               data-lucide="arrow-up-right"
-              class="text-white/80 w-6 h-6 p-1 border border-white/80 rounded-full absolute top-8 right-8"
+              class="text-white/80 w-6 h-6 p-1 border border-white/80 rounded-full absolute top-6 right-6 sm:top-8 sm:right-8"
             ></i>
-            <h3 class="text-white/90 font-bold text-5xl">01</h3>
-            <p class="text-white/80 text-2xl font-medium">
+            <h3 class="text-white/90 font-bold text-4xl sm:text-5xl">01</h3>
+            <p class="text-white/80 text-xl sm:text-2xl font-medium">
               10+ Years of Tech Expertise
             </p>
           </div>
 
           <div
-            class="trustCard flex flex-col justify-start items-start gap-8 rounded-lg p-6 relative flex-1"
+            class="trustCard flex flex-col justify-start items-start gap-6 sm:gap-8 rounded-lg p-5 sm:p-6 relative flex-1 min-w-0"
           >
             <i
               data-lucide="arrow-up-right"
-              class="text-white/80 w-6 h-6 p-1 border border-white/80 rounded-full absolute top-8 right-8"
+              class="text-white/80 w-6 h-6 p-1 border border-white/80 rounded-full absolute top-6 right-6 sm:top-8 sm:right-8"
             ></i>
-            <h3 class="text-white/90 font-bold text-5xl">01</h3>
-            <p class="text-white/80 text-2xl font-medium">
+            <h3 class="text-white/90 font-bold text-4xl sm:text-5xl">01</h3>
+            <p class="text-white/80 text-xl sm:text-2xl font-medium">
               10+ Years of Tech Expertise
             </p>
           </div>
 
           <div
-            class="trustCard flex flex-col justify-start items-start gap-8 rounded-lg p-6 relative flex-1"
+            class="trustCard flex flex-col justify-start items-start gap-6 sm:gap-8 rounded-lg p-5 sm:p-6 relative flex-1 min-w-0"
           >
             <i
               data-lucide="arrow-up-right"
-              class="text-white/80 w-6 h-6 p-1 border border-white/80 rounded-full absolute top-8 right-8"
+              class="text-white/80 w-6 h-6 p-1 border border-white/80 rounded-full absolute top-6 right-6 sm:top-8 sm:right-8"
             ></i>
-            <h3 class="text-white/90 font-bold text-5xl">01</h3>
-            <p class="text-white/80 text-2xl font-medium">
+            <h3 class="text-white/90 font-bold text-4xl sm:text-5xl">01</h3>
+            <p class="text-white/80 text-xl sm:text-2xl font-medium">
               10+ Years of Tech Expertise
             </p>
           </div>
         </div>
       </section>
       <section
-        class="px-[100px] py-[80px] font-[poppins] flex flex-col justify-center items-center relative"
+        class="px-[24px] sm:px-[50px] md:px-[80px] lg:px-[100px] py-[64px] md:py-[80px] flex flex-col justify-center items-center relative"
       >
         <img
           class="pointer-events-none select-none absolute top-0 right-[-40%] w-full h-full object-cover overflow-hidden -z-10"
@@ -365,54 +491,732 @@
           style="max-height: 100%; height: 100%"
         />
 
-        <h2 class="font-[poppins] font-medium text-3xl text-white/90">
+        <h2 class="font-medium text-2xl md:text-4xl text-white/90 text-center">
           Real Impact. <span class="text-[#5810de]">Proven Results.</span>
         </h2>
-        <p class="text-white/70 text-md font-light text-center mt-8">
+        <p class="text-white/70 text-md font-light text-center mt-4 md:mt-8 text-base sm:text-md">
           Explore how we've helped startups and enterprises alike
-          <br />
+          <br class="hidden sm:block" />
           scale and innovate.
         </p>
         <div
-          class="resultsCards flex justify-center items-center gap-4 w-[80%] my-[80px]"
+          class="resultsCards flex flex-col sm:flex-row justify-center items-center gap-4 w-full sm:w-[80%] my-[48px] md:my-[80px]"
         >
           <div
-            class="resultsCard flex flex-col justify-center items-start gap-4 rounded-lg p-6 relative flex-1 font-[poppins] h-[200px] bg-white/10"
+            class="resultsCard flex flex-col justify-center items-start gap-3 md:gap-4 rounded-lg p-5 md:p-6 relative flex-1 h-[170px] md:h-[200px] bg-white/10 min-w-0 w-full sm:w-auto"
           >
             <p class="text-sm font-normal text-[#5810de]">Fintech</p>
             <h3 class="text-white/90 font-bold text-lg">Fintech Dashboard</h3>
-            <p class="text-white/80 text-sm font-normal max-w-[70%]">
+            <p class="text-white/80 text-sm font-normal max-w-[90%] md:max-w-[70%]">
               Streamlined user analytics & real-time transactions
             </p>
           </div>
 
           <div
-            class="resultsCard purpleBorder flex flex-col justify-center items-start gap-4 rounded-lg p-6 relative flex-1 font-[poppins] h-[200px] bg-white/10"
+            class="resultsCard purpleBorder flex flex-col justify-center items-start gap-3 md:gap-4 rounded-lg p-5 md:p-6 relative flex-1 h-[170px] md:h-[200px] bg-white/10 min-w-0 w-full sm:w-auto"
           >
             <p class="text-sm font-normal text-[#5810de]">E-Commerce</p>
             <h3 class="text-white/90 font-bold text-lg">E-Commerce Platform</h3>
-            <p class="text-white/80 text-sm font-normal max-w-[70%]">
+            <p class="text-white/80 text-sm font-normal max-w-[90%] md:max-w-[70%]">
               300% increase in covnersion through custom storefront.
             </p>
           </div>
 
           <div
-            class="resultsCard flex flex-col justify-center items-start gap-4 rounded-lg p-6 relative flex-1 font-[poppins] h-[200px] bg-white/10"
+            class="resultsCard flex flex-col justify-center items-start gap-3 md:gap-4 rounded-lg p-5 md:p-6 relative flex-1 h-[170px] md:h-[200px] bg-white/10 min-w-0 w-full sm:w-auto"
           >
             <p class="text-sm font-normal text-[#5810de]">Ai</p>
             <h3 class="text-white/90 font-bold text-lg">AI-Powered Tool</h3>
-            <p class="text-white/80 text-sm font-normal max-w-[70%]">
+            <p class="text-white/80 text-sm font-normal max-w-[90%] md:max-w-[70%]">
               Reduced support tickets by 40% using predictive models.
             </p>
           </div>
         </div>
         <button
-          class="getStarted rounded-lg text-sm px-10 py-3 text-md text-white/80 cursor-pointer duration-150 ease hover:text-white/90 hover:-translate-y-px"
+          class="getStarted rounded-lg text-sm px-7 md:px-10 py-3 text-md text-white/80 cursor-pointer duration-150 ease hover:text-white/90 hover:-translate-y-px w-full sm:w-auto text-center"
         >
           View All Projetcts
         </button>
       </section>
+      <section
+        class="pt-[80px] flex flex-col justify-center items-center relative overflow-hidden"
+      >
+        <h2 class="font-medium text-4xl text-white/90 my-0 mx-auto text-center">
+          Trusted by Innovators
+        </h2>
+        <div class="w-full mt-[120px] relative" style="max-width: 100vw">
+          <div
+            id="feedback-carousel"
+            class="flex gap-8"
+            style="will-change: transform"
+          >
+            <!-- Feedback card 1 -->
+            <div
+              class="feedback relative flex flex-col justify-center items-center rounded-xl h-[50vh] pt-[50px] xl:pt-0"
+            >
+              <img
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[100px] xl:w-[150px] border-14 border-black"
+                src="Assets/Img/profilePicture.jpg"
+                alt=""
+              />
+              <div class="flex gap-1 justify-center items-start">
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+              </div>
+              <div class="flex flex-col justify-center items-center my-[20px] xl:my-[40px]">
+                <h3
+                  class="text-white/80 text-md font-semibold underline cursor-pointer"
+                >
+                  Robert D.
+                </h3>
+                <p class="text-white/80 text-sm font-light">
+                  Product Manager at FinBase
+                </p>
+              </div>
+              <p
+                class="text-white/80 text-sm font-normal text-center max-w-[80%]"
+              >
+                The dashboard they delivered exceeded our expectations fast,
+                responsive, and beautifully designed. It's become our teams's
+                go-to for daily financial insights.
+              </p>
+            </div>
+            <!-- Feedback card 2 -->
+            <div
+              class="feedback relative flex flex-col justify-center items-center rounded-xl h-[50vh] pt-[50px] xl:pt-0"
+            >
+              <img
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[100px] xl:w-[150px] border-14 border-black"
+                src="Assets/Img/profilePicture.jpg"
+                alt=""
+              />
+              <div class="flex gap-1 justify-center items-start">
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+              </div>
+              <div class="flex flex-col justify-center items-center my-[20px] xl:my-[40px]">
+                <h3
+                  class="text-white/80 text-md font-semibold underline cursor-pointer"
+                >
+                  Julia R.
+                </h3>
+                <p class="text-white/80 text-sm font-light">
+                  CTO at NeoMarkets
+                </p>
+              </div>
+              <p
+                class="text-white/80 text-sm font-normal text-center max-w-[80%]"
+              >
+                The dashboard they delivered exceeded our expectations fast,
+                responsive, and beautifully designed. It's become our teams's
+                go-to for daily financial insights.
+              </p>
+            </div>
+            <!-- Feedback card 3 -->
+            <div
+              class="feedback relative flex flex-col justify-center items-center rounded-xl h-[50vh] pt-[50px] xl:pt-0"
+            >
+              <img
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[100px] xl:w-[150px] border-14 border-black"
+                src="Assets/Img/profilePicture.jpg"
+                alt=""
+              />
+              <div class="flex gap-1 justify-center items-start">
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+              </div>
+              <div class="flex flex-col justify-center items-center my-[20px] xl:my-[40px]">
+                <h3
+                  class="text-white/80 text-md font-semibold underline cursor-pointer"
+                >
+                  Lucas S.
+                </h3>
+                <p class="text-white/80 text-sm font-light">
+                  Head de Produto na Kredify
+                </p>
+              </div>
+              <p
+                class="text-white/80 text-sm font-normal text-center max-w-[80%]"
+              >
+                The dashboard they delivered exceeded our expectations fast,
+                responsive, and beautifully designed. It's become our teams's
+                go-to for daily financial insights.
+              </p>
+            </div>
+            <!-- Feedback card 4 -->
+            <div
+              class="feedback relative flex flex-col justify-center items-center rounded-xl h-[50vh] pt-[50px] xl:pt-0"
+            >
+              <img
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[100px] xl:w-[150px] border-14 border-black"
+                src="Assets/Img/profilePicture.jpg"
+                alt=""
+              />
+              <div class="flex gap-1 justify-center items-start">
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+              </div>
+              <div class="flex flex-col justify-center items-center my-[20px] xl:my-[40px]">
+                <h3
+                  class="text-white/80 text-md font-semibold underline cursor-pointer"
+                >
+                  Mariana T.
+                </h3>
+                <p class="text-white/80 text-sm font-light">CEO na TrustBank</p>
+              </div>
+              <p
+                class="text-white/80 text-sm font-normal text-center max-w-[80%]"
+              >
+                The dashboard they delivered exceeded our expectations fast,
+                responsive, and beautifully designed. It's become our teams's
+                go-to for daily financial insights.
+              </p>
+            </div>
+            <!-- Feedback card 5 -->
+            <div
+              class="feedback relative flex flex-col justify-center items-center rounded-xl h-[50vh] pt-[50px] xl:pt-0"
+            >
+              <img
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[100px] xl:w-[150px] border-14 border-black"
+                src="Assets/Img/profilePicture.jpg"
+                alt=""
+              />
+              <div class="flex gap-1 justify-center items-start">
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+              </div>
+              <div class="flex flex-col justify-center items-center my-[20px] xl:my-[40px]">
+                <h3
+                  class="text-white/80 text-md font-semibold underline cursor-pointer"
+                >
+                  Daniel K.
+                </h3>
+                <p class="text-white/80 text-sm font-light">
+                  Founder da NextPay
+                </p>
+              </div>
+              <p
+                class="text-white/80 text-sm font-normal text-center max-w-[80%]"
+              >
+                The dashboard they delivered exceeded our expectations fast,
+                responsive, and beautifully designed. It's become our teams's
+                go-to for daily financial insights.
+              </p>
+            </div>
+            <!-- Feedback card 6 -->
+            <div
+              class="feedback relative flex flex-col justify-center items-center rounded-xl h-[50vh] pt-[50px] xl:pt-0"
+            >
+              <img
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[100px] xl:w-[150px] border-14 border-black"
+                src="Assets/Img/profilePicture.jpg"
+                alt=""
+              />
+              <div class="flex gap-1 justify-center items-start">
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+              </div>
+              <div class="flex flex-col justify-center items-center my-[20px] xl:my-[40px]">
+                <h3
+                  class="text-white/80 text-md font-semibold underline cursor-pointer"
+                >
+                  Fernanda L.
+                </h3>
+                <p class="text-white/80 text-sm font-light">
+                  Tech Lead na SmartPayments
+                </p>
+              </div>
+              <p
+                class="text-white/80 text-sm font-normal text-center max-w-[80%]"
+              >
+                The dashboard they delivered exceeded our expectations fast,
+                responsive, and beautifully designed. It's become our teams's
+                go-to for daily financial insights.
+              </p>
+            </div>
+            <!-- Feedback card 7 -->
+            <div
+              class="feedback relative flex flex-col justify-center items-center rounded-xl h-[50vh] pt-[50px] xl:pt-0"
+            >
+              <img
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[100px] xl:w-[150px] border-14 border-black"
+                src="Assets/Img/profilePicture.jpg"
+                alt=""
+              />
+              <div class="flex gap-1 justify-center items-start">
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+              </div>
+              <div class="flex flex-col justify-center items-center my-[20px] xl:my-[40px]">
+                <h3
+                  class="text-white/80 text-md font-semibold underline cursor-pointer"
+                >
+                  Marcos V.
+                </h3>
+                <p class="text-white/80 text-sm font-light">
+                  Partner na FinanceDigital
+                </p>
+              </div>
+              <p
+                class="text-white/80 text-sm font-normal text-center max-w-[80%]"
+              >
+                The dashboard they delivered exceeded our expectations fast,
+                responsive, and beautifully designed. It's become our teams's
+                go-to for daily financial insights.
+              </p>
+            </div>
+            <!-- Feedback card 8 -->
+            <div
+              class="feedback relative flex flex-col justify-center items-center rounded-xl h-[50vh] pt-[50px] xl:pt-0"
+            >
+              <img
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[100px] xl:w-[150px] border-14 border-black"
+                src="Assets/Img/profilePicture.jpg"
+                alt=""
+              />
+              <div class="flex gap-1 justify-center items-start">
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+              </div>
+              <div class="flex flex-col justify-center items-center my-[20px] xl:my-[40px]">
+                <h3
+                  class="text-white/80 text-md font-semibold underline cursor-pointer"
+                >
+                  Priscila A.
+                </h3>
+                <p class="text-white/80 text-sm font-light">
+                  Product Owner na InovaPay
+                </p>
+              </div>
+              <p
+                class="text-white/80 text-sm font-normal text-center max-w-[80%]"
+              >
+                The dashboard they delivered exceeded our expectations fast,
+                responsive, and beautifully designed. It's become our teams's
+                go-to for daily financial insights.
+              </p>
+            </div>
+            <!-- Cloned cards for infinite effect, just repeat above 8 cards -->
+            <div
+              class="feedback relative flex flex-col justify-center items-center rounded-xl h-[50vh] pt-[50px] xl:pt-0"
+            >
+              <img
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full w-[100px] xl:w-[150px] border-14 border-black"
+                src="Assets/Img/profilePicture.jpg"
+                alt=""
+              />
+              <div class="flex gap-1 justify-center items-start">
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+                <img src="Assets/Img/star.png" class="w-4 h-4" alt="" />
+              </div>
+              <div class="flex flex-col justify-center items-center my-[20px] xl:my-[40px]">
+                <h3
+                  class="text-white/80 text-md font-semibold underline cursor-pointer"
+                >
+                  Robert D.
+                </h3>
+                <p class="text-white/80 text-sm font-light">
+                  Product Manager at FinBase
+                </p>
+              </div>
+              <p
+                class="text-white/80 text-sm font-normal text-center max-w-[80%]"
+              >
+                The dashboard they delivered exceeded our expectations fast,
+                responsive, and beautifully designed. It's become our teams's
+                go-to for daily financial insights.
+              </p>
+            </div>
+            <!-- ... repeat cards 2-8 if desired for longer loop ... -->
+          </div>
+        </div>
+      </section>
+      <section
+        class="FAQs px-[16px] sm:px-[50px] md:px-[80px] lg:px-[100px] pt-[160px] pb-[80px] flex flex-col justify-center items-center relative"
+      >
+        <img
+          class="pointer-events-none select-none absolute top-0 left-[-50%] w-full h-full object-cover overflow-hidden z-10"
+          src="Assets/blur.svg"
+          alt=""
+          style="max-height: 100%; height: 100%"
+        />
+
+        <h2 class="font-medium text-4xl text-white/90 text-center">
+          Got Questions? <span class="text-[#5810de]">We've Got Answers.</span>
+        </h2>
+        <p
+          class="text-white/80 text-xl font-normal text-center max-w-[80%] mt-[25px] mb-[50px]"
+        >
+          Find quick answers to common questions about our <br />
+          platform, services, and support.
+        </p>
+        <div class="faq-list w-full max-w-2xl">
+          <div class="faq-item border-b border-white/30 py-4">
+            <button
+              class="faq-question flex items-center w-full text-left text-[#5810de] text-lg font-semibold focus:outline-none group transition-colors"
+              aria-expanded="false"
+            >
+              <span class="mr-3 text-[#5810de] font-bold">1.</span>
+              How does your platform ensure data security and privacy?
+              <svg
+                class="ml-auto h-5 w-5 text-[#5810de] faq-arrow transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              class="faq-answer faq-collapse mt-2 pl-8 text-white/80 text-base font-light transition-all"
+            >
+              Our platform employs end-to-end encryption, regular security
+              audits, and follows industry best practices to guarantee the
+              safety and confidentiality of your data.
+            </div>
+          </div>
+          <div class="faq-item border-b border-white/30 py-4">
+            <button
+              class="faq-question flex items-center w-full text-left text-[#5810de] text-lg font-semibold focus:outline-none group transition-colors"
+              aria-expanded="false"
+            >
+              <span class="mr-3 text-[#5810de] font-bold">2.</span>
+              Can I customize solutions to fit my business needs?
+              <svg
+                class="ml-auto h-5 w-5 text-[#5810de] faq-arrow transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              class="faq-answer faq-collapse mt-2 pl-8 text-white/80 text-base font-light transition-all"
+            >
+              Absolutely! We tailor all solutions according to your specific
+              needs, ensuring seamless integration with your operations and
+              processes.
+            </div>
+          </div>
+          <div class="faq-item border-b border-white/30 py-4">
+            <button
+              class="faq-question flex items-center w-full text-left text-[#5810de] text-lg font-semibold focus:outline-none group transition-colors"
+              aria-expanded="false"
+            >
+              <span class="mr-3 text-[#5810de] font-bold">3.</span>
+              What level of support does your team provide?
+              <svg
+                class="ml-auto h-5 w-5 text-[#5810de] faq-arrow transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              class="faq-answer faq-collapse mt-2 pl-8 text-white/80 text-base font-light transition-all"
+            >
+              We offer comprehensive support from onboarding and training to
+              ongoing maintenance and troubleshooting, ensuring you're always
+              supported.
+            </div>
+          </div>
+          <div class="faq-item border-b border-white/30 py-4">
+            <button
+              class="faq-question flex items-center w-full text-left text-[#5810de] text-lg font-semibold focus:outline-none group transition-colors"
+              aria-expanded="false"
+            >
+              <span class="mr-3 text-[#5810de] font-bold">4.</span>
+              Is there a trial or demo available before purchase?
+              <svg
+                class="ml-auto h-5 w-5 text-[#5810de] faq-arrow transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              class="faq-answer faq-collapse mt-2 pl-8 text-white/80 text-base font-light transition-all"
+            >
+              Yes! We offer both demos and trial periods so you can experience
+              the value of our solutions before making a commitment.
+            </div>
+          </div>
+          <div class="faq-item border-b border-white/30 py-4">
+            <button
+              class="faq-question flex items-center w-full text-left text-[#5810de] text-lg font-semibold focus:outline-none group transition-colors"
+              aria-expanded="false"
+            >
+              <span class="mr-3 text-[#5810de] font-bold">5.</span>
+              How quickly can we launch after signing up?
+              <svg
+                class="ml-auto h-5 w-5 text-[#5810de] faq-arrow transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              class="faq-answer faq-collapse mt-2 pl-8 text-white/80 text-base font-light transition-all"
+            >
+              We work with you to establish timelines, but most clients can
+              launch within a few weeks depending on requirements and
+              customization.
+            </div>
+          </div>
+        </div>
+      </section>
+      <div
+        class="w-[80%] my-0 mx-auto h-[70vh] rounded-xl flex justify-center items-center relative overflow-hidden
+          sm:w-[95%] sm:h-[45vh] sm:min-h-[350px] xs:w-full xs:rounded-none xs:h-[38vh] xs:min-h-[250px]"
+      >
+        <img
+          class="rounded-xl border border-white/50 object-cover w-full h-full
+            sm:rounded-lg sm:h-full xs:rounded-none xs:h-full xs:w-full"
+          src="Assets/Img/bg.png"
+          alt=""
+        />
+        <div
+          class="absolute flex flex-col justify-center items-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+            w-full px-4 sm:px-4 xs:px-2"
+        >
+          <p
+            class="font-medium xl:text-4xl text-white/90 text-center
+              sm:text-2xl xs:text-xl xs:leading-tight"
+          >
+            Let's Build Something Great Togheter
+          </p>
+          <p
+            class="xl:text-2xl text-white/80 font-normal text-center mt-[25px] mb-[50px]
+              sm:text-base sm:mt-3 sm:mb-7 xs:mt-2 xs:mb-4 xs:text-sm"
+          >
+            Whether you're lauching a startup or upgrading <br class="sm:hidden xs:hidden" />
+            legacy tech, we're here to help.
+          </p>
+          <button
+            class="getStarted rounded-lg text-sm px-10 py-3 text-md text-white/80 cursor-pointer duration-150 ease hover:text-white/90 hover:-translate-y-px
+              sm:text-sm sm:px-6 sm:py-2 xs:px-4 xs:py-1 xs:text-xs"
+          >
+            Schedule Your Free Discorvey Call
+          </button>
+        </div>
+      </div>
     </main>
+    <footer class="siteFooter mt-[160px]">
+      <div class="footerInner w-[80%] mx-auto py-[80px]">
+        <div
+          class="footerContent flex justify-between items-start gap-12 flex-wrap"
+        >
+          <div class="flex flex-col gap-8">
+            <h2 class="text-white/90 font-bold text-5xl leading-none">
+              Fintech<span class="text-white/90">.</span>
+            </h2>
+          </div>
+
+          <div class="footerLinks flex gap-16 flex-wrap items-start">
+            <div class="flex flex-col gap-3 min-w-[120px]">
+              <p class="text-white/90 text-sm font-semibold">Home</p>
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Home</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Features</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Pricing</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Solutions</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >About</a
+              >
+            </div>
+
+            <div class="flex flex-col gap-3 min-w-[120px]">
+              <p class="text-white/90 text-sm font-semibold">Company</p>
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >About Us</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Careers</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Press</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Blog</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Contact</a
+              >
+            </div>
+
+            <div class="flex flex-col gap-3 min-w-[140px]">
+              <p class="text-white/90 text-sm font-semibold">Products</p>
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Dashboard</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Analytics</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Integrations</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >API Access</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Mobile App</a
+              >
+            </div>
+
+            <div class="flex flex-col gap-3 min-w-[150px]">
+              <p class="text-white/90 text-sm font-semibold">Resources</p>
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Help Center</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >FAQs</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Privacy Policy</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Terms of Service</a
+              >
+              <a
+                class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+                href="#"
+                >Security</a
+              >
+            </div>
+          </div>
+
+          <div class="footerConnect flex flex-col gap-4 min-w-[220px]">
+            <div class="flex justify-between items-start gap-6">
+              <p class="text-white/90 text-sm font-semibold">Connect</p>
+              <div class="flex gap-2">
+                <a
+                  class="footerSocial"
+                  href="#"
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
+                >
+                  <i data-lucide="linkedin" class="w-4 h-4"></i>
+                </a>
+                <a
+                  class="footerSocial"
+                  href="#"
+                  aria-label="X (Twitter)"
+                  title="X (Twitter)"
+                >
+                  <i data-lucide="twitter" class="w-4 h-4"></i>
+                </a>
+                <a
+                  class="footerSocial"
+                  href="#"
+                  aria-label="GitHub"
+                  title="GitHub"
+                >
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+                <a
+                  class="footerSocial"
+                  href="#"
+                  aria-label="Instagram"
+                  title="Instagram"
+                >
+                  <i data-lucide="instagram" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+            <a
+              class="text-white/70 text-sm font-light hover:text-white/90 duration-150 ease"
+              href="mailto:support@fintech.com"
+              >support@fintech.com</a
+            >
+            <p class="text-white/70 text-sm font-light">New York, NY, USA</p>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/lenis@1.3.15/dist/lenis.min.js"></script>

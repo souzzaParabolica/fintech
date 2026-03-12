@@ -2,31 +2,175 @@
   background: linear-gradient(90deg, #2b018b, #6010fd);
 }
 
-.avaliacao, .card{
-    border: 1px solid rgba(255, 255, 255, 0.212);
-    box-shadow: inset 1px 1px 2px -1px rgba(255, 255, 255, 0.32);
-    box-shadow: inset -2px -1px 10px -1px rgba(0, 0, 0, 0.32);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+header{
+    background-image: linear-gradient(to bottom, black, transparent);
 }
 
-.purpleCard{
-    border: none;
-    background-image: linear-gradient(45deg, #2b018b, #5f0ffc);
+.avaliacao,
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.212);
+  box-shadow: inset 1px 1px 2px -1px rgba(255, 255, 255, 0.32);
+  box-shadow: inset -2px -1px 10px -1px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.resultados{
-    background-image: linear-gradient(45deg, #180151, #370b94);
+.purpleCard {
+  border: none;
+  background-image: linear-gradient(45deg, #2b018b, #5f0ffc);
 }
 
-.trustCard{
-    border: 1px solid rgba(255, 255, 255, 0.658);
+.resultados {
+  background-image: linear-gradient(45deg, #180151, #370b94);
 }
 
-.resultsCard{
-    border: 1px solid rgba(255, 255, 255, 0.658);
+.trustCard {
+  border: 1px solid rgba(255, 255, 255, 0.658);
 }
 
-.purpleBorder{
-    border: 1px solid #5810de;
+.resultsCard {
+  border: 1px solid rgba(255, 255, 255, 0.658);
+}
+
+.purpleBorder {
+  border: 1px solid #5810de;
+}
+
+.feedback {
+  background-image: linear-gradient(45deg, #2b018b, #5f11fd);
+}
+
+#feedback-carousel {
+  animation: carousel-move 64s linear infinite;
+}
+@keyframes carousel-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* Feedback card largura padrão maior */
+#feedback-carousel .feedback {
+  width: 450px;
+  min-width: 450px;
+  max-width: 450px;
+}
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  #feedback-carousel .feedback {
+    width: 340px;
+    min-width: 340px;
+    max-width: 340px;
+  }
+}
+@media (max-width: 800px) {
+  #feedback-carousel .feedback {
+    width: 90vw;
+    min-width: 90vw;
+    max-width: 90vw;
+  }
+}
+
+/* FAQ accordion smooth animation styles */
+.faq-collapse {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.32s cubic-bezier(0.4, 0.1, 0.2, 1),
+    opacity 0.28s cubic-bezier(0.4, 0.1, 0.2, 1);
+  will-change: max-height, opacity;
+  margin-bottom: 0 !important;
+  /* fixes transition-jump caused by margin */
+}
+.faq-collapse.open {
+  opacity: 1;
+  max-height: 400px;
+  /* fits most answers, increase if needed */
+  margin-bottom: 16px !important;
+}
+/* Prevent FAQ overflow right on reload (mobile-friendlier paddings above) */
+@media (max-width: 640px) {
+  .FAQs {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  .faq-list {
+    max-width: 100%;
+  }
+}
+
+/* .build{
+    background-image: url(Assets/Img/bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+
+.siteFooter {
+  background-image: linear-gradient(90deg, #2b018b, #5f11fd);
+}
+
+.footerSocial {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.9);
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.footerSocial:hover {
+  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Footer polish (responsive, without changing desktop look) */
+@media (max-width: 900px) {
+  .siteFooter .footerInner {
+    width: 92%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .siteFooter .footerContent {
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .siteFooter .footerLinks {
+    width: 100%;
+    gap: 32px;
+  }
+
+  .siteFooter .footerConnect {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .siteFooter .footerLinks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .siteFooter .footerSocial {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+  }
 }
