@@ -431,6 +431,9 @@
   .w-\[40px\] {
     width: 40px;
   }
+  .w-\[50\%\] {
+    width: 50%;
+  }
   .w-\[80\%\] {
     width: 80%;
   }
@@ -439,6 +442,9 @@
   }
   .w-\[90vw\] {
     width: 90vw;
+  }
+  .w-\[95\%\] {
+    width: 95%;
   }
   .w-\[100px\] {
     width: 100px;
@@ -633,6 +639,12 @@
     border-color: color-mix(in srgb, #fff 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-white) 30%, transparent);
+    }
+  }
+  .border-white\/40 {
+    border-color: color-mix(in srgb, #fff 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 40%, transparent);
     }
   }
   .border-white\/50 {
@@ -1055,6 +1067,11 @@
       min-height: 350px;
     }
   }
+  .sm\:w-\[9\%\] {
+    @media (width >= 40rem) {
+      width: 9%;
+    }
+  }
   .sm\:w-\[80\%\] {
     @media (width >= 40rem) {
       width: 80%;
@@ -1369,9 +1386,24 @@
       height: 20px;
     }
   }
+  .xl\:h-\[38vh\] {
+    @media (width >= 80rem) {
+      height: 38vh;
+    }
+  }
+  .xl\:h-\[45vh\] {
+    @media (width >= 80rem) {
+      height: 45vh;
+    }
+  }
   .xl\:h-\[310px\] {
     @media (width >= 80rem) {
       height: 310px;
+    }
+  }
+  .xl\:min-h-\[250px\] {
+    @media (width >= 80rem) {
+      min-height: 250px;
     }
   }
   .xl\:w-\[10\%\] {
@@ -1384,6 +1416,16 @@
       width: 20px;
     }
   }
+  .xl\:w-\[80\%\] {
+    @media (width >= 80rem) {
+      width: 80%;
+    }
+  }
+  .xl\:w-\[95\%\] {
+    @media (width >= 80rem) {
+      width: 95%;
+    }
+  }
   .xl\:w-\[150px\] {
     @media (width >= 80rem) {
       width: 150px;
@@ -1392,6 +1434,11 @@
   .xl\:w-auto {
     @media (width >= 80rem) {
       width: auto;
+    }
+  }
+  .xl\:w-full {
+    @media (width >= 80rem) {
+      width: 100%;
     }
   }
   .xl\:flex-row {
@@ -1412,6 +1459,11 @@
   .xl\:gap-4 {
     @media (width >= 80rem) {
       gap: calc(var(--spacing) * 4);
+    }
+  }
+  .xl\:rounded-none {
+    @media (width >= 80rem) {
+      border-radius: 0;
     }
   }
   .xl\:pt-0 {
